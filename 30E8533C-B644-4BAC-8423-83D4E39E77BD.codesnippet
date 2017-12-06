@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>apiMethod</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark -
+#pragma mark - CTAPIManagerParamSource
+- (NSDictionary *)paramsForApi:(CTAPIBaseManager *)manager {
+    NSDictionary *params = @{};
+    if (manager == self.messageAPI) {
+        params = @{@"userToken":[MPUserAccountViewModel sharedInstance].token};
+    }
+    return params;
+}
+
+#pragma mark -
+#pragma mark - CTAPIManagerCallBackDelegate
+- (void)managerCallAPIDidSuccess:(CTAPIBaseManager *)manager {
+    if (manager == self.messageAPI) {
+        NSLog(@"%@", [manager fetchDataWithReformer:self]);
+    }
+}
+
+- (void)managerCallAPIDidFailed:(CTAPIBaseManager *)manager {
+    if (manager == self.messageAPI) {
+        NSLog(@"%@", [manager fetchDataWithReformer:nil]);
+    }
+}
+
+#pragma mark -
+#pragma mark - CTAPIManagerDataReformer
+- (id)manager:(CTAPIBaseManager *)manager reformData:(NSDictionary *)data {
+    if (manager == self.messageAPI) {
+        if ([data[@"code"] isEqualToString:@"0"]) {
+            NSDictionary *dic = data[@"data"];
+            
+        }
+    }
+    return nil;
+}
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>30E8533C-B644-4BAC-8423-83D4E39E77BD</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>api method</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
