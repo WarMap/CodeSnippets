@@ -15,7 +15,7 @@
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C-Plus-Plus</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>My Code Snippet</string>
+	<string>property copy</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
